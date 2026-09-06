@@ -1,0 +1,19 @@
+groups:
+- name: platform-slo
+  rules:
+  - alert: HighErrorRate
+    expr: sum(rate(http_requests_total{status=~"5.."}[5m])) / sum(rate(http_requests_total[5m])) > 0.01
+    for: 10m
+    labels:
+      severity: page
+    annotations:
+      summary: API error rate exceeds 1%
+      runbook: docs/runbooks/high-error-rate.md
+
+  - alert: HighLatency
+    expr: histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 1
+    for: 10m
+    labels:
+      severity: ticket
+    annotations:
+      summary: API p99 latency exceeds one second

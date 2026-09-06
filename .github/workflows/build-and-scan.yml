@@ -1,0 +1,26 @@
+name: build-and-scan
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+  packages: write
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build image
+      run: docker build -t ghcr.io/${{ github.repository_owner }}/platform-api:${{ github.sha }} projects/cloud-native-cicd-platform/app
+    - name: Trivy image scan
+      uses: aquasecurity/trivy-action@0.24.0
+      with:
+        image-ref: ghcr.io/${{ github.repository_owner }}/platform-api:${{ github.sha }}
+        severity: CRITICAL,HIGH
+        exit-code: '1'
+    - name: Generate SBOM
+      uses: anchore/sbom-action@v0
+      with:
+        image: ghcr.io/${{ github.repository_owner }}/platform-api:${{ github.sha }}
+        format: spdx-json
+        output-file: sbom.spdx.json

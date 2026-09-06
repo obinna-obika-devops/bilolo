@@ -1,0 +1,28 @@
+name: platform-ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Terraform format check
+        uses: hashicorp/setup-terraform@v3
+      - run: terraform -chdir=projects/aws-production-platform/terraform fmt -check -recursive
+      - name: Kubernetes manifest validation
+        run: |
+          kubectl apply --dry-run=client -f projects/kubernetes-internal-developer-platform/manifests/platform.yaml
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: IaC scan
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: projects/aws-production-platform/terraform

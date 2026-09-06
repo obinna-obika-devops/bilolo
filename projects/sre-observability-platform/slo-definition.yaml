@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: slo-definition
+  namespace: platform-demo
+data:
+  availability.yaml: |
+    service: platform-api
+    window: 30d
+    target: 0.999
+    sli: successful_requests / total_requests
+  latency.yaml: |
+    service: platform-api
+    percentile: p99
+    target_seconds: 1
+    window: 30d

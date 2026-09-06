@@ -1,0 +1,14 @@
+apiVersion: chaos/v1alpha1
+kind: Experiment
+metadata:
+  name: api-pod-failure
+spec:
+  hypothesis: "The service remains available when one API replica is terminated."
+  steadyState:
+    - "available_replicas >= 1"
+    - "error_rate < 1%"
+  blastRadius: "one pod in platform-demo"
+  fault: "delete one non-critical API pod"
+  abortCondition: "error_rate >= 5% for 2 minutes"
+  observationWindow: "10m"
+  remediation: "review scheduling, PDB, autoscaling, and alert response"
