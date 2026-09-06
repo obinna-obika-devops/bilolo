@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bilolo — Cloud & Infrastructure Engineer, DevOps, SRE and Platform Engineering portfolio.">
+  <title>Bilolo | Cloud & Infrastructure Engineer</title>
+  <style>
+    :root{--bg:#0b1020;--panel:#11182b;--text:#eef2ff;--muted:#aab4cf;--line:#25304a;--accent:#7dd3fc;--accent2:#a78bfa}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#1b2550 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1120px;margin:auto;padding:0 24px}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}nav strong{font-size:20px}nav span{display:flex;gap:20px;font-size:14px}
+    .hero{padding:88px 0 70px;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px}.hero h1{font-size:clamp(42px,7vw,76px);line-height:1.02;margin:16px 0}.hero p{font-size:20px;color:var(--muted);max-width:700px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{padding:11px 16px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text)}.btn.primary{background:var(--text);color:#0b1020}
+    .terminal{background:#080c17;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 18px 60px #0005}.terminal .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-right:6px}.terminal pre{margin:18px 0 0;white-space:pre-wrap;color:#c7d2fe}
+    section{padding:64px 0;border-top:1px solid var(--line)}h2{font-size:34px;margin:0 0 10px}section>p{color:var(--muted);max-width:760px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.card{background:#ffffff06;border:1px solid var(--line);border-radius:14px;padding:22px}.card h3{margin:0 0 8px;font-size:19px}.card p{color:var(--muted);font-size:14px}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 9px;margin:4px 4px 0 0;font-size:12px;color:#cbd5e1}
+    .stack{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.stack span{padding:7px 11px;border-radius:8px;background:var(--panel);border:1px solid var(--line);font-size:13px}.footer{padding:42px 0;color:var(--muted);font-size:14px}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:55px}.grid{grid-template-columns:1fr 1fr}nav span{display:none}}@media(max-width:520px){.grid{grid-template-columns:1fr}.wrap{padding:0 18px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><strong>Bilolo</strong><span><a href="#projects">Projects</a><a href="#stack">Stack</a><a href="#engineering">Engineering</a><a href="https://github.com/obinna-obika-devops">GitHub</a></span></nav>
+    <header class="hero">
+      <div><div class="eyebrow">Cloud · DevOps · SRE · Platform</div><h1>Cloud & Infrastructure Engineering.</h1><p>I build reference platforms around cloud infrastructure, Kubernetes, automation, reliability, security, networking and developer experience.</p><div class="buttons"><a class="btn primary" href="#projects">Explore projects</a><a class="btn" href="https://github.com/obinna-obika-devops">View GitHub</a></div></div>
+      <div class="terminal"><span class="dot"></span><span class="dot"></span><span class="dot"></span><pre>$ kubectl get platform
+NAME                    STATUS
+cloud-platform          reference
+sre-reliability         reference
+devsecops-supply-chain  reference
+
+$ terraform validate
+Success: configuration is valid.</pre></div>
+    </header>
+    <section id="projects"><h2>Selected engineering work</h2><p>Recruiter-facing examples spanning the infrastructure lifecycle — from provisioning and delivery to reliability, security and operations.</p><div class="grid">
+      <article class="card"><h3><a href="https://github.com/obinna-obika-devops/cloud-platform-engineering">Cloud Platform Engineering</a></h3><p>AWS EKS internal developer platform reference implementation with Terraform, Kubernetes, GitOps, observability and policy controls.</p><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span><span class="tag">Argo CD</span></article>
+      <article class="card"><h3><a href="https://github.com/obinna-obika-devops/sre-reliability-engineering-lab">SRE Reliability Lab</a></h3><p>Reliability engineering patterns covering SLOs, incident response, observability, chaos experiments, remediation and DR.</p><span class="tag">SRE</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">DR</span></article>
+      <article class="card"><h3><a href="https://github.com/obinna-obika-devops/devsecops-supply-chain-security">DevSecOps Supply Chain</a></h3><p>Secure delivery reference architecture with vulnerability scanning, SBOM concepts, provenance, signing and admission policy.</p><span class="tag">DevSecOps</span><span class="tag">Trivy</span><span class="tag">Kyverno</span><span class="tag">Cosign</span></article>
+      <article class="card"><h3><a href="https://github.com/obinna-obika-devops/cloud-networking-engineering">Cloud Networking Engineering</a></h3><p>AWS networking reference work focused on VPC architecture, segmentation, Terraform automation and connectivity validation.</p><span class="tag">AWS VPC</span><span class="tag">Terraform</span><span class="tag">Networking</span></article>
+      <article class="card"><h3><a href="https://github.com/obinna-obika-devops/cloud-automation-engineering">Cloud Automation Engineering</a></h3><p>Event-driven cloud automation patterns for operations, lifecycle management, retries, idempotency and remediation.</p><span class="tag">Python</span><span class="tag">AWS</span><span class="tag">Automation</span></article>
+      <article class="card"><h3><a href="https://github.com/obinna-obika-devops/cloud-finops-cost-optimization">Cloud FinOps</a></h3><p>Cost governance reference implementation covering allocation, forecasting, anomaly detection, rightsizing and budget controls.</p><span class="tag">FinOps</span><span class="tag">AWS</span><span class="tag">Governance</span></article>
+    </div></section>
+    <section id="stack"><h2>Engineering stack</h2><p>Tools and practices represented across the portfolio.</p><div class="stack"><span>AWS</span><span>Azure</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span><span>Helm</span><span>GitHub Actions</span><span>GitOps</span><span>Argo CD</span><span>Prometheus</span><span>Grafana</span><span>OpenTelemetry</span><span>Python</span><span>Go</span><span>Trivy</span><span>Kyverno</span><span>OPA</span><span>FinOps</span></div></section>
+    <section id="engineering"><h2>How I approach infrastructure</h2><div class="grid"><article class="card"><h3>Automate safely</h3><p>Prefer repeatable infrastructure, validation, policy gates, idempotent workflows and explicit rollback paths.</p></article><article class="card"><h3>Design for failure</h3><p>Use SLOs, observability, incident response, recovery planning and controlled failure experiments to reason about reliability.</p></article><article class="card"><h3>Reduce cognitive load</h3><p>Platform abstractions should provide golden paths while keeping ownership, security and operational trade-offs visible.</p></article></div></section>
+    <footer class="footer">Portfolio/reference implementations. No production deployment is implied unless explicitly stated in a project. · <a href="https://github.com/obinna-obika-devops">GitHub</a></footer>
+  </div>
+</body>
+</html>
